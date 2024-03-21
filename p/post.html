@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posting Akun</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    
+    .navbar {
+      background-color: #222;
+    }
+    
+    .transaction-form {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input[type="number"],
+    input[type="file"],
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">gustup.store</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://pabagus.free.nf">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://pabagus.free.nf">Akun</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://wa.me/6281235460443">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form class="transaction-form" id="transaction-form">
+        <div class="form-group">
+          <label for="trx-type">Status Akun:</label>
+          <select id="trx-type" name="trx-type" class="form-control" required>
+            <option value="Ready">Ready</option>
+            <option value="Sold Out">Sold</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="akun-type">Game:</label>
+          <select id="akun-type" name="akun-type" class="form-control" required>
+            <option value="Free Fire">Free Fire</option>
+            <option value="Mobile Legends">Mobile Legends</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="login-type">Login:</label>
+          <select id="login-type" name="login-type" class="form-control" required>
+            <option value="Facebook">Facebook</option>
+            <option value="Google">Google</option>
+            <option value="Moonton">Moonton</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="vault">Vault / Skin:</label>
+          <input type="number" id="vault" name="vault" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="spek">Spesifikasi:</label>
+          <input type="text" id="spek" name="spek" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="price">Harga:</label>
+          <input type="number" id="price" name="price" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="wa">No Wa:</label>
+          <input type="number" id="wa" name="wa" class="form-control" required minlength="8">          	
+        </div>
+        <div class="form-group">
+          <label for="file">Foto Akun</label>
+          <input type="file" id="file" name="file" class="form-control-file" required>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="validateForm">Jual Akun</button>
+        <button type="button" class="btn btn-primary btn-block" style="display: none;" id="loadingButton">...</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>Keamanan transaksi prioritas kami. Gunakan layanan admin gustup.store untuk transaksi yang aman dan lancar.</p>
+    <div class="social-icons">
+      <a href="https://wa.me/6281235460443" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/gustup.store/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js";
+import { getDatabase, ref as dbRef, push, set } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+
+// Inisialisasi konfigurasi Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCc6lTfOXPqGG4l9fLzF9GgS4VDfw7YQEI",
+  authDomain: "dbwa-c097c.firebaseapp.com",
+  projectId: "dbwa-c097c",
+  storageBucket: "dbwa-c097c.appspot.com",
+  messagingSenderId: "948107828225",
+  appId: "1:948107828225:web:1b12824451fd8aa388b400",
+  measurementId: "G-7TW7B6MY32"
+};
+
+// Inisialisasi Firebase
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+const database = getDatabase(app);
+
+// Validasi dan kirim formulir saat tombol "Jual Akun" diklik
+document.getElementById('validateForm').addEventListener('click', async function(event) {
+  event.preventDefault();
+
+  // Mendapatkan nilai dari formulir
+  const trxType = document.getElementById('trx-type').value;
+  const akunType = document.getElementById('akun-type').value;
+  const loginType = document.getElementById('login-type').value;
+  const vault = document.getElementById('vault').value;
+  const spek = document.getElementById('spek').value;
+  const price = document.getElementById('price').value;
+  const wa = document.getElementById('wa').value;
+  const file = document.getElementById('file').files[0];
+  
+  // Memeriksa apakah semua input telah diisi
+  if (trxType && akunType && loginType && vault && spek && price && wa && file) {
+    document.getElementById('validateForm').style.display = 'none';
+    document.getElementById('loadingButton').style.display = 'block';
+    if (file.type.split('/')[0] !== 'image') {
+      alert('File harus berupa gambar!');
+      return;
+    }
+
+    // Mengonversi harga ke format Rupiah
+    const formattedPrice = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(price);
+
+    // Upload foto akun ke Firebase Storage
+    const storageRef = ref(storage, 'akun/' + trxType + akunType + loginType + vault + spek + price + wa + file.name);
+    await uploadBytes(storageRef, file);
+
+    // Dapatkan URL unduhan foto dari Firebase Storage
+    const imageUrl = await getDownloadURL(storageRef);
+
+    // Simpan data ke Firebase Realtime Database
+    const transactionsRef = dbRef(database, 'akun/id');
+    const newTransactionRef = push(transactionsRef);
+    set(newTransactionRef, {
+      trxType,
+      akunType,
+      loginType,
+      vault,
+      spek,
+      price: formattedPrice,
+      wa,
+      imageUrl
+    });
+
+    // Reset formulir
+    document.getElementById('transaction-form').reset();
+
+    // Tampilkan pesan berhasil
+    alert('Akun berhasil di posting')
+    document.getElementById('validateForm').style.display = 'block';
+    document.getElementById('loadingButton').style.display = 'none';
+  } else {
+    // Jika ada input yang belum diisi, tampilkan pesan kesalahan
+    alert('Silakan lengkapi semua formulir sebelum melanjutkan!');
+  }
+});
+</script>
+
+</body>
+</html>
