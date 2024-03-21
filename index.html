@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gustup.store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-size: 14px;
+            text-size: 13px;
+        }
+                
+        .navbar {
+            background-color: #222;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">gustup.store</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="p/post">Jual Akun</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wa.me/6281235460443">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-4">
+        <section class="row">
+            <div class="col-md-6" id="product-list">
+                <!-- Konten -->
+                <p> Loading... </p>
+            </div>
+        </section>
+    </div>
+    
+    <div class="footer">
+    <div class="container">
+        <p>Keamanan transaksi prioritas kami. Gunakan layanan admin gustup.store untuk transaksi yang aman dan lancar.</p>
+        <div class="social-icons">
+            <a href="https://wa.me/6281235460443" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/gustup.store/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li><a href="p/post">Jual Akun</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script type="module" src="getProductFirebase.js"></script>
+</body>
+</html>
